@@ -20,7 +20,7 @@
                           maxlength="50" required>
                     </div>
                     <div class="form-group">
-                        <label for="codigo">Créditos:</label>
+                        <label for="creditos">Créditos:</label>
                         <input type="text" id="numCredito" name="numCredito" class="form-control" min="1" max="9" value="1" required>
                     </div>
                     <div class="form-group">
@@ -40,7 +40,7 @@
                         <th>Código</th>
                         <th>Nombre</th>
                         <th>Créditos</th>
-                        <th colespan="2">Opciones</th>
+                        <th colspan="2">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,8 +50,20 @@
                         <td>{{c.codigo}}</td>
                         <td>{{c.nombre}}</td>
                         <td>{{c.creditos}}</td>
-                        <td><a href="edicionCurso/{{c.codigo}}" class= "btn btn-primary">Editar</a></td>
-                        <td><a href="eliminarCurso/{{c.codigo}}" class= "btn btn-danger btnEliminacion">Eliminar</a></td>
+                        <td>
+                            <div class="row justify-content-evenly">
+                                <div class="col-auto">
+                                    <a href="/edicionCurso/{{c.codigo}}" class="btn btn-outline-primary">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="/eliminarCurso/{{c.codigo}}" class="btn btn-danger btnEliminacion">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>             
                     </tr>
                     {%endfor%}
                 </tbody>

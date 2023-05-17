@@ -1,0 +1,39 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestión de Estudiantes {% endblock  %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edición de Estudiante</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editarEstudiante/" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        <label for="carnet">Carnet:</label>
+                        <input type="text" id="txtCarnet" name="txtCarnet" value="{{estudiante.carnet}}" class="form-control" placeholder="Ingrese el carnet del estudiante"
+                         minlength="7" maxlength="7" readonly required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombres">Nombres:</label>
+                        <input type="text" id="txtNombres" name="txtNombres" value="{{estudiante.nombres}}" class="form-control" placeholder="Ingrese el nombre del estudiante"
+                          maxlength="25" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos:</label>
+                        <input type="text" id="txtApellidos" name="txtApellidos" value="{{estudiante.apellidos}}" class="form-control" placeholder="Ingrese los apellidos del estudiante"
+                          maxlength="25" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edad">Edad:</label>
+                        <input type="text" id="numEdad" name="numEdad" value="{{estudiante.edad}}" class="form-control" min="1" max="100" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block">Guardar</button>             
+                    </div>
+                </form>        
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
